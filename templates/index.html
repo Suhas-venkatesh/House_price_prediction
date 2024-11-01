@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>House Price Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Area (sq ft):</label><br>
+        <input type="text" name="area" required><br><br>
+        
+        <label>Bedrooms:</label><br>
+        <input type="number" name="bedrooms" required><br><br>
+        
+        <label>Bathrooms:</label><br>
+        <input type="number" name="bathrooms" required><br><br>
+        
+        <label>Stories:</label><br>
+        <input type="number" name="stories" required><br><br>
+        
+        <label>Main Road:</label><br>
+        <select name="mainroad">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Guest Room:</label><br>
+        <select name="guestroom">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Basement:</label><br>
+        <select name="basement">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Hot Water Heating:</label><br>
+        <select name="hotwaterheating">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Air Conditioning:</label><br>
+        <select name="airconditioning">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Parking:</label><br>
+        <input type="number" name="parking" required><br><br>
+        
+        <label>Preferred Area:</label><br>
+        <select name="prefarea">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        
+        <label>Furnishing Status:</label><br>
+        <select name="furnishingstatus">
+            <option value="unfurnished">Unfurnished</option>
+            <option value="semi-furnished">Semi-Furnished</option>
+            <option value="furnished">Furnished</option>
+        </select><br><br>
+        
+        <button type="submit">Predict Price</button>
+    </form>
+    
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
